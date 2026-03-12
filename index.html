@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career Pathfinder - Your Future Finder</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Login/Signup Page -->
+    <div id="auth-container" class="container">
+        <div class="left-section">
+            <img src="pathfinder.png" alt="">
+            <h1>Career Pathfinder</h1>
+            <p>Your Future Finder</p>
+            <button onclick="toggleAuthMode()">Create Account</button>
+        </div>
+        <div class="right-section">
+            <h2 id="auth-title">Sign In</h2>
+            <form id="auth-form" onsubmit="handleAuth(event)">
+                <div class="form-group name-group" style="display: none;">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" id="auth-button">Sign In</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Main Application -->
+    <div id="app" class="app-container" style="display: none;">
+        <!-- Sidebar -->
+        <!--<div id="sidebar" class="sidebar">
+            <div class="sidebar-header">
+                <h3>Created By</h3>
+            </div>
+            <div class="creators-list">
+                <div class="creator">Aravind</div>
+                <div class="creator">Shiva</div>
+                <div class="creator">Akshara</div>
+                <div class="creator">Stiven</div>
+            </div>
+        </div>-->
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Navigation -->
+            <nav class="navbar">
+                <div class="nav-left">
+                    <button id="sidebar-toggle" onclick="toggleSidebar()">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+                <div class="nav-center">
+                    <h1>Career Pathfinder</h1>
+                </div>
+                <div class="nav-right">
+                    <button onclick="logout()" class="sign-out-btn">
+                        <i class="fas fa-sign-out-alt"></i> Sign Out
+                    </button>
+                </div>
+            </nav>
+
+            <!-- Main Sections -->
+            <div class="sections-container">
+                <div class="section-buttons">
+                    <button onclick="showSection('domains')" class="section-btn active">
+                        <i class="fas fa-sitemap"></i> Domains
+                    </button>
+                    <button onclick="showSection('interviews')" class="section-btn">
+                        <i class="fas fa-code"></i> Interview Questions
+                    </button>
+                    <button onclick="showSection('experiences')" class="section-btn">
+                        <i class="fas fa-user-friends"></i> Peer Experiences
+                    </button>
+                    <button onclick="showSection('suggestions')" class="section-btn">
+                        <i class="fas fa-lightbulb"></i> Suggestions
+                    </button>
+                </div>
+
+                <!-- Domains Section -->
+                <div id="domains-section" class="content-section">
+                    <div id="domains-grid" class="domains-grid">
+                        <!-- Domains will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Interviews Section -->
+                <div id="interviews-section" class="content-section" style="display: none;">
+                    <div class="companies-grid" id="companies-grid">
+                        <!-- Companies will be populated by JavaScript -->
+                    </div>
+                    <div id="questions-list" class="questions-list" style="display: none;">
+                        <!-- Questions will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Peer Experiences Section -->
+                <div id="experiences-section" class="content-section" style="display: none;">
+                    <div id="experiences-grid" class="experiences-grid">
+                        <!-- Peer experiences will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Suggestions Section -->
+                <div id="suggestions-section" class="content-section" style="display: none;">
+                    <div id="suggestions-grid" class="suggestions-grid">
+                        <!-- Suggestions will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
